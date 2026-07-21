@@ -1,5 +1,6 @@
 from expenses import add_expense
 from storage import load_expenses, save_expenses
+from reports import total_expenses
 
 expenses = load_expenses()
 
@@ -8,12 +9,13 @@ while True:
     print ("1. Add expense")
     print ("2. View all expenses")
     print ("3. To delete the history")
-    print ("4. Exit")
+    print ("4. view report")
+    print ("5. Exit")
 
-    choice = int(input("Enter your choice from (1-4): "))
+    choice = int(input("Enter your choice from (1-5): "))
 
-    if choice > 4 or choice < 1:
-        print("Poor input, Please enter a valid choice from (1-4) next time.")
+    if choice > 5 or choice < 1:
+        print("Poor input, Please enter a valid choice from (1-5) next time.")
         break
 
 
@@ -41,6 +43,12 @@ while True:
 
 
     elif choice == 4:
+       total = total_expenses(expenses)
+       print(f"total expenses: {total}")
+
+
+    elif choice == 5:
         
+
         print("Exiting the program.")
         break
